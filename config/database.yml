@@ -10,8 +10,16 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  #<<: *default
+  #database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: forest_development
+  pool: 5
+  username: forestguardian
+  password: green-1234
+  host: forestdev.cloudapp.net
+  port: 5432
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,5 +29,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  #<<: *default
+  #database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: forest_production
+  pool: 5
+  username: forestguardian
+  password: green-1234
+  host: forestdev.cloudapp.net
+  port: 5432
