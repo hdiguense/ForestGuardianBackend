@@ -207,7 +207,7 @@ margin-left: -600px;
 }
 
 .bgg {
-background: url(/assets/start/bg.jpg);
+background: url(../img/start/bg.jpg);
 background-position: center bottom;
 width: 100%;
 height: 100%;
@@ -488,10 +488,13 @@ z-index: 2;
 [3. Map Page styles / #Map Page styles]
 */
 /* map style */
-.map {
-width: 100%;
-height: 100%;
-position: fixed !important;
+.forest_map {
+    position: absolute !important;
+    overflow: visible !important;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%
 }
 
 /*menu*/
@@ -913,7 +916,7 @@ transition:0.3s;
 .menusha_open:hover {color:#ffffff; cursor: pointer; transition:0.3s;}
 /*header section*/
 .header_section {
-background: url(/assets/c_interior.png) no-repeat;
+background: url(../img/c_interior.png) no-repeat;
 margin: 0px 0px;
 background-size: cover;
 min-height: 255px;
@@ -1473,17 +1476,17 @@ background: #95C800;
 }
 
 .place_gr_cont .pg.style_one.bg_one {
-background: url(/assets/pl1.jpg);
+background: url(../img/pl1.jpg);
 transition:0.3s;
 }
 
 .place_gr_cont .pg.style_one.bg_two {
-background: url(/assets/pl2.jpg);
+background: url(../img/pl2.jpg);
 transition:0.3s;
 }
 
 .place_gr_cont .pg.style_one.bg_three {
-background: url(/assets/pl3.jpg);
+background: url(../img/pl3.jpg);
 transition:0.3s;
 }
 
@@ -1688,7 +1691,7 @@ max-width: 700px;
 .post {}
 
 .post.p_style_one {
-background: url('/assets/blog_post_bg.jpg');
+background: url('../img/blog_post_bg.jpg');
 padding: 90px;
 }
 
@@ -1735,14 +1738,14 @@ margin: 0px 8px 0px 0px;
 
 
 .post.p_style_one.vdk {
-background: url('/assets/blog_post_vdk.jpg');
+background: url('../img/blog_post_vdk.jpg');
 background-size: cover;
 }
 
 /*Post style two*/
 .post {}
 .post.p_style_two {
-background: url('/assets/blog_post_two_bg.jpg');
+background: url('../img/blog_post_two_bg.jpg');
 padding: 0px;
 background-size: cover;
 background-position: right top;
@@ -1804,7 +1807,7 @@ margin: 0px 8px 0px 0px;
 .post {}
 
 .post.p_style_three {
-background: url('/assets/blog_post_two_bg.jpg');
+background: url('../img/blog_post_two_bg.jpg');
 padding: 0px;
 background-size: cover;
 }
@@ -1901,7 +1904,7 @@ color: #383838;
 }
 
 .Subscribe {
-background: url('/assets/blog_post_bg.jpg');
+background: url('../img/blog_post_bg.jpg');
 padding: 10px;
 margin: 40px 0px;
 }
@@ -1983,7 +1986,7 @@ padding: 35px 0px 20px;
 }
 
 .fourzerofour {
-background: url(/assets/404bg.jpg);
+background: url(../img/404bg.jpg);
 background-size: cover;
 }
 .fourzerofour div {
