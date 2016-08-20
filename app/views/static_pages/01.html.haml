@@ -106,14 +106,14 @@
         %h3
           Autorization
           %span
-        %form
+        %form{ class: 'new_user', action: '/users', method: 'post' }
           %label
             Login:
-            %input{:type => "text"}/
+            %input{:type => "email", name:'user[email]'}/
           %label
             Password:
-            %input{:type => "text"}/
-          %a.btn.btn-success{:href => "#"} Log in
+            %input{:type => "password", name:'user[password]'}/
+          %input.btn.btn-success{:href => "#", name: 'commit', type: 'submit' }
           %a.btn.btn-primary{:href => "#"}
             %i.icon-facebook>
             Log in with Facebook

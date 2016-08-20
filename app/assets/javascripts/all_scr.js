@@ -34,7 +34,7 @@ $(document).ready(function () {
   $("a.transition").click(function(event){
       "use strict";
     event.preventDefault();
-    linkLocation = this.href;
+    var linkLocation = this.href;
     $("body").fadeOut(900, redirectPage);
   });
   function redirectPage() {
