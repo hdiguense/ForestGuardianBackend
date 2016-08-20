@@ -29,7 +29,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   %body.indexpage
     / navigation swipe
-    .menu-btn ☰
+    .menu-btn
+      %img.app_logo{:alt => "Forest Guardian", :src => "/assets/app_icon.png" }
     %nav.pushy.pushy-left
       .profile
         .avatar
@@ -122,7 +123,7 @@
       .row
         .col-md-12
           %a.logo{:href => "home.html"}
-            %img.app_logo{:alt => "Forest Guardian", :src => "/assets/app_icon.png"}/
+            %label{ :style =>"font-size:18px;transform:translate(10%,20%);color:#789a35" } Forest Guardian
           %input.search{:placeholder => "search", :type => "text"}/
           %a#ad.green_btn_header{:href => "#"} Add place
 
@@ -135,7 +136,7 @@
           center: [-77.38, 39], // starting position
           zoom: 3 // starting zoom
       });
-    / categori menu
+    / categories menu
     .container-fluid.menu.mobile
       .row
         .col-md-12
@@ -191,3 +192,6 @@
     / Bootstrap js
     %script{:src => "/assets/bootstrap.min.js"}
     / Map js
+    %script{:src => "/assets/map.js", :type => "text/javascript"}
+    / Other main scripts
+    %script{:src => "/assets/all_scr.js"}

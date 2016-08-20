@@ -101,7 +101,7 @@ color: #FFFFFF;
 }
 
 .pushy .profile h3 a:hover {
-color: #03AAAC;
+color: #789a35;
 text-decoration: none;
 }
 
@@ -126,7 +126,7 @@ text-decoration: none;
 width: 110px;
 border-radius: 100px;
 display: block;
-border: 2px solid #03AAAC;
+border: 2px solid #789a35;
 padding: 6px;
 }
 
@@ -135,7 +135,7 @@ display: block;
 position: absolute;
 right: 0px;
 padding: 5px 11px;
-background: #03AAAC;
+background: #789a35;
 width: 30px;
 height: 30px;
 border-radius: 100px;
@@ -164,7 +164,7 @@ margin-bottom: -1px;
 }
 .pushy .side_menu li a span {padding: 12px 20px;}
 .pushy .side_menu li a i {
-color: #03aaac;
+color: #789a35;
 padding: 12px;
 display: inline-block;
 background: #161C25;
@@ -178,7 +178,7 @@ text-align: center;
 color: #FFFFFF;
 padding: 12px;
 display: inline-block;
-background: #03AAAC;
+background: #789a35;
 margin-right: 16px;
 font-size: 14px;
 transition: 0.3s;
@@ -188,7 +188,7 @@ text-align: center;
 .pushy .side_menu li a:hover {
 color: #FFFFFF;
 text-decoration: none;
-background: #03AAAC;
+background: #789a35;
 }
 
 /*------------------------------------------------------------------
