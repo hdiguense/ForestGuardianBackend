@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+.login-input{
+    width: 240px;
+    margin: 10px 30px;
+}
