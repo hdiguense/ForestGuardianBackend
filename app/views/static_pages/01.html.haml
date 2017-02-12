@@ -27,22 +27,24 @@
     /[if lt IE 9]
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    = csrf_meta_tags
   %body.indexpage
     / navigation swipe
-    .menu-btn ☰
+    .menu-btn
+      %img.app_logo{:alt => "Forest Guardian", :src => "/assets/app_icon.png" }
     %nav.pushy.pushy-left
       .profile
         .avatar
           %img{:alt => "#", :src => "/assets/avatar/ava_16.jpg"}/
           %span 5
         %h3
-          %a{:href => "03.html"} Ananew Matvey
+          %a{:href => "03.html"} Anonymous
         %a.log_btn{:href => "#"} Log in
       %ul.side_menu
         %li
           %a{:href => "home.html"}
             %i.fa.fa-bookmark-o>
-            Promo page
+            Start
         %li
           %a.animsition-link{:href => "01.html"}
             %i.fa.fa-map-marker>
@@ -105,26 +107,27 @@
         %h3
           Autorization
           %span
-        %form
+        = form_for User.new, id:'new_user' , url: session_path(:user), remote: true do |f|
+          %div#login-alert.alert.alert-danger{ role:'alert' , hidden:'hidden'}>...<
           %label
             Login:
-            %input{:type => "text"}/
+            %input{:type => 'email', name:'user[email]'}/
           %label
             Password:
-            %input{:type => "text"}/
-          %a.btn.btn-success{:href => "#"} Log in
-          %a.btn.btn-primary{:href => "#"}
+            %input{:type => 'password', name:'user[password]'}/
+          = f.submit value: 'Sign in', class: 'btn btn-success login-input'
+          %a.btn.btn-primary{:href => '#'}
             %i.icon-facebook>
             Log in with Facebook
+          %a{:href => '#', :style =>'margin-right:0px' } Forgot Password?
+          %a{:href => '#', :style =>'margin-left:0px' } Sign up
     .site-overlay
     / Header
     .container-fluid.header
       .row
         .col-md-12
-          %a.logo{:href => "home.html"}
-            %img.app_logo{:alt => "Forest Guardian", :src => "/assets/app_icon.png"}/
-          %input.search{:placeholder => "search", :type => "text"}/
-          %a#ad.green_btn_header{:href => "#"} Add place
+          %a.logo{:href => 'home.html'}
+            %label{ :style =>'font-size:18px;transform:translate(5%,20%);color:#789a35' } Forest Guardian
 
     #map.forest_map
     :javascript
@@ -135,11 +138,11 @@
           center: [-77.38, 39], // starting position
           zoom: 3 // starting zoom
       });
-    / categori menu
+    / categories menu
     .container-fluid.menu.mobile
       .row
         .col-md-12
-          %span Categori menu
+          %span Categories menu
           %i#close_menu.fa.fa-times
           %ul
             %li
@@ -191,3 +194,6 @@
     / Bootstrap js
     %script{:src => "/assets/bootstrap.min.js"}
     / Map js
+    %script{:src => "/assets/map.js", :type => "text/javascript"}
+    / Other main scripts
+    %script{:src => "/assets/all_scr.js"}
