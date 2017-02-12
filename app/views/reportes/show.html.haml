@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @reporte.name
+%p
+  %b Description:
+  = @reporte.description
+%p
+  %b Geo latitude:
+  = @reporte.geo_latitude
+%p
+  %b Geo longitude:
+  = @reporte.geo_longitude
+%p
+  %b Author:
+  = @reporte.author
+%p
+  %b Closed:
+  = @reporte.closed
+
+= link_to 'Edit', edit_reporte_path(@reporte)
+\|
+= link_to 'Back', reportes_path

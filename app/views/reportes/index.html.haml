@@ -1,0 +1,31 @@
+%h1 Listing reportes
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Geo latitude
+      %th Geo longitude
+      %th Author
+      %th Closed
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reportes.each do |reporte|
+      %tr
+        %td= reporte.name
+        %td= reporte.description
+        %td= reporte.geo_latitude
+        %td= reporte.geo_longitude
+        %td= reporte.author
+        %td= reporte.closed
+        %td= link_to 'Show', reporte
+        %td= link_to 'Edit', edit_reporte_path(reporte)
+        %td= link_to 'Destroy', reporte, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Reporte', new_reporte_path
