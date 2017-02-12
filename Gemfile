@@ -32,6 +32,12 @@ gem 'therubyracer', platforms: :ruby
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
+#
+# # npm
+# gem 'npm-rails'
+
+# bower
+gem 'bower-rails'
 
 
 ### FRONTEND - CSS ###
@@ -39,10 +45,7 @@ gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 
-gem 'twitter-bootstrap-rails'
-
-gem 'sass'
-
+gem 'sass-rails', '>= 3.2'
 ### DATABASE ###
 
 #Use of postgresql

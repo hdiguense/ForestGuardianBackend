@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :reportes
 
   devise_for :users, controllers: {
-      sessions: 'users/sessions'
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
   }
+
+
+  resources :reportes
 
 end

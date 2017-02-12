@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
-  respond_to :json
+  respond_to :html,:json
 
   def redirect_to(options = {}, response_status = {})
     ::Rails.logger.error("Redirected by #{caller(1).first rescue "unknown"}")

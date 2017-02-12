@@ -37,3 +37,5 @@ bower.json
 .idea/
 public/assets/
 
+# Added by npm-rails
+/node_modules

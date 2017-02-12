@@ -41,5 +41,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  Rails.application.config.assets.precompile += %w( bootstrap/* )
+  config.assets.prefix = '/dev-assets'
+
+  # config.npm.run_before_assets_precompile = true
+
 end
