@@ -1,21 +1,18 @@
 /! http://bootsnipp.com/snippets/kE9rg
-.container
-  .row
-    .col-md-6.col-md-offset-3
-      .panel.panel-login
-        .panel-body
-          .row
-            .col-lg-12
-              #login-form style="display: block;"
-                = render partial: 'users/shared/login_form'
-              #register-form style="display: none;"
-                = render partial: 'users/shared/registration_form'
+.panel.panel-default.panel-login
+  .panel-body
+    .row
+      .col-lg-12
+        #login-form style="display: block;"
+          = render partial: 'users/shared/login_form'
+        #register-form style="display: none;"
+          = render partial: 'users/shared/registration_form'
 
-        .panel-heading
-          .row
-            .col-xs-6.tabs
-              a#login-form-link.active href="#" /
-              .login LOGIN
-            .col-xs-6.tabs
-              a#register-form-link href="#" /
-              .register REGISTER
+  .panel-footer
+    .row
+      .col-xs-6.tabs
+        a#login-form-link.active href="#" /
+        .login LOGIN
+      .col-xs-6.tabs
+        a#register-form-link href="#" /
+        .register REGISTER
