@@ -102,7 +102,7 @@ color: #FFFFFF;
 }
 
 .pushy .profile h3 a:hover {
-color: #789a35;
+color: #03AAAC;
 text-decoration: none;
 }
 
@@ -127,7 +127,7 @@ text-decoration: none;
 width: 110px;
 border-radius: 100px;
 display: block;
-border: 2px solid #789a35;
+border: 2px solid #03AAAC;
 padding: 6px;
 }
 
@@ -136,7 +136,7 @@ display: block;
 position: absolute;
 right: 0px;
 padding: 5px 11px;
-background: #789a35;
+background: #03AAAC;
 width: 30px;
 height: 30px;
 border-radius: 100px;
@@ -165,7 +165,7 @@ margin-bottom: -1px;
 }
 .pushy .side_menu li a span {padding: 12px 20px;}
 .pushy .side_menu li a i {
-color: #789a35;
+color: #03aaac;
 padding: 12px;
 display: inline-block;
 background: #161C25;
@@ -179,7 +179,7 @@ text-align: center;
 color: #FFFFFF;
 padding: 12px;
 display: inline-block;
-background: #789a35;
+background: #03AAAC;
 margin-right: 16px;
 font-size: 14px;
 transition: 0.3s;
@@ -189,7 +189,7 @@ text-align: center;
 .pushy .side_menu li a:hover {
 color: #FFFFFF;
 text-decoration: none;
-background: #789a35;
+background: #03AAAC;
 }
 
 /*------------------------------------------------------------------
@@ -218,7 +218,7 @@ background-repeat: no-repeat;
 }
 
 .green_button {
-background: #789a35;
+background: #97c900;
 padding: 8px 20px;
 border-radius: 3px;
 color: #ffffff;
@@ -730,7 +730,7 @@ padding: 0px 10px;
 max-width: 400px;
 }
 .green_btn_header {
-background: #789a35;
+background: #95c800;
 padding: 6px 50px;
 color: #ffffff;
 font-size: 14px;

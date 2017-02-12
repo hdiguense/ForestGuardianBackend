@@ -10,12 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
+@import "tether/dist/css/tether";
+@import "bootstrap/dist/css/bootstrap";
+@import "bootstrap-material-design/dist/bootstrap-material-design";
 
-.login-input{
-    width: 240px;
-    margin: 10px 30px;
+.centered-layout{
+  position:absolute;
+  width:780px;
+  height:650px;
+  left:50%;
+  top:50%;
+  margin-left:-390px;
+  margin-top:-325px;
+}
+
+.forest-background body {
+  background: url(background.jpg);
 }
