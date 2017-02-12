@@ -18,14 +18,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ### FRONTEND - CORE ###
 
-# Template engine (alternative to ERB)
-gem 'haml-rails', '~> 0.9.0'
-
 # Other template engine
 gem 'slim'
-
-# Bower
-gem 'bower-rails'
 
 ### FRONTEND - JS ###
 
@@ -42,16 +36,12 @@ gem 'uglifier'
 
 ### FRONTEND - CSS ###
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'coffee-rails'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'sass'
 
 ### DATABASE ###
 
