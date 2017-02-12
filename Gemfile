@@ -4,16 +4,16 @@ source 'https://rubygems.org'
 ### CORE ###
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 
 ### FRONTEND - CORE ###
@@ -45,7 +45,7 @@ gem 'bower-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails'
 ### DATABASE ###
 
 #Use of postgresql
@@ -56,8 +56,8 @@ gem 'pg'
 ### DEPLOYMENT ###
 
 group :development do
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano'
+  gem 'capistrano-rails'
 end
 
 # Use Unicorn as the app server
@@ -73,7 +73,7 @@ gem 'devise'
 gem 'cancan'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 
 ### THIRD-PARTY ###
@@ -89,7 +89,7 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
