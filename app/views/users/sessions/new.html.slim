@@ -1,0 +1,41 @@
+/! http://bootsnipp.com/snippets/kE9rg
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      .panel.panel-login
+        .panel-body
+          .row
+            .col-lg-12
+              #login-form style="display: block;"
+                =form_for(resource, as:resource_name, url: session_path(resource_name) ) do |f|
+                  h2 LOGIN
+                  .form-group
+                    =f.email_field :email, autofocus: true, placeholder: 'email', tabindex:1, class: 'form-control'
+                  .form-group
+                    =f.password_field :password, placeholder: 'Password', tabindex:2, class: 'form-control'
+                  .col-xs-6.form-group.pull-left.checkbox
+                    input#checkbox1 name="remember" type="checkbox" /
+                    label for="checkbox1"  Remember Me
+                  .col-xs-6.form-group.pull-right
+                    input#login-submit.form-control.btn.btn-login name="login-submit" tabindex="4" type="submit" value=("Log In") /
+              #register-form style="display: none;"
+                = form_for(resource, as:resource_name, url: registration_path(resource_name) ) do |f|
+                  h2 REGISTER
+                  .form-group
+                    = f.email_field :email, autofocus: true, placeholder: 'email', tabindex: 1, class: 'form-control'
+                  .form-group
+                    = f.password_field :password, placeholder: 'Password', tabindex: 2, class: 'form-control'
+                  .form-group
+                    = f.password_field :password_confirmation, placeholder: '(Confirm Password)', tabindex: 2, class: 'form-control'
+                  .form-group
+                    .row
+                      .col-sm-6.col-sm-offset-3
+                        input#register-submit.form-control.btn.btn-register name="register-submit" tabindex="4" type="submit" value=("Register Now") /
+        .panel-heading
+          .row
+            .col-xs-6.tabs
+              a#login-form-link.active href="#" /
+              .login LOGIN
+            .col-xs-6.tabs
+              a#register-form-link href="#" /
+              .register REGISTER
