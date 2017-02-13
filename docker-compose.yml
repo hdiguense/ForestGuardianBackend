@@ -1,0 +1,38 @@
+version: '2'
+services:
+  db:
+    restart: always
+    image: sameersbn/postgresql:9.6-2
+    environment:
+        DB_USER: forestguardian
+        DB_PASS: e5f6!JgYXP8v6J9%
+    ports:
+      - '5432:5432'
+    volumes:
+      - vol-postgres:/var/lib/postgresql/data
+    networks:
+      intranet:
+        ipv4_address: 172.16.238.10
+  web:
+    build: .
+    command: bash ./deploy/start.sh
+    volumes:
+      - .:/ForestGuardianBackend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      intranet:
+
+volumes:
+  vol-postgres: {}
+
+networks:
+  intranet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1

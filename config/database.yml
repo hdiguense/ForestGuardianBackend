@@ -10,9 +10,9 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: emma
-  password: pojapoja
-  host: localhost
+  username: forestguardian
+  password: e5f6!JgYXP8v6J9%
+  host: 172.16.238.10
   port: 5432
 
 development:
@@ -27,13 +27,6 @@ test:
   database: forest_test
 
 production:
-  #<<: *default
+  <<: *default
   #database: db/production.sqlite3
-  adapter: postgresql
-  encoding: unicode
   database: forest_production
-  pool: 5
-  username: forestguardian
-  password: green-1234
-  host: forestdev.cloudapp.net
-  port: 5432
