@@ -11,7 +11,7 @@ default: &default
   encoding: unicode
   pool: 5
   username: forestguardian
-  password: e5f6!JgYXP8v6J9%
+  password: rVgJcwDvs5A7aMZG
   host: 172.16.238.10
   port: 5432
 
