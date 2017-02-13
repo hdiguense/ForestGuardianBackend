@@ -4,6 +4,7 @@ class Users::SessionsController < Devise::SessionsController
 # protect_from_forgery
   include ApplicationHelper
   layout 'centered'
+  protect_from_forgery with: :null_session, if: ->{request.format.json?}
 
   # GET /resource/sign_in
   # def new
