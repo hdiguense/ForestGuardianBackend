@@ -1,0 +1,87 @@
+{
+  "resource": "Registrations",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/users",
+  "description": "Sign up succesfully with an HTTP 201",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "email",
+      "description": "Email of the new user"
+    },
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "password",
+      "description": "Password of at least 8 characters"
+    },
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "password_confirmation",
+      "description": "The same password again"
+    }
+  ],
+  "response_fields": [
+    {
+      "scope": "user",
+      "Type": "Number",
+      "name": "id",
+      "description": "Id of the new created user"
+    },
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "email",
+      "description": "Email of the new user"
+    },
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "created_at",
+      "description": "Resource creation timestamp"
+    },
+    {
+      "scope": "user",
+      "Type": "String",
+      "name": "updated_at",
+      "description": "Resource last update timestamp"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/users",
+      "request_body": "{\"user\":{\"email\":\"joe@forestguardian.org\",\"password\":\"secret_pass\",\"password_confirmation\":\"secret_pass\"}}",
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 6,\n  \"email\": \"joe@forestguardian.org\",\n  \"created_at\": \"2017-02-13T02:02:54.645Z\",\n  \"updated_at\": \"2017-02-13T02:02:54.647Z\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Location": "/",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"a103029e3468f61a93c533fd7fa0eb38\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "851f8870-9c16-4ddb-aee5-4966b9878992",
+        "X-Runtime": "0.097504",
+        "Content-Length": "121"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/users\" -d '{\"user\":{\"email\":\"joe@forestguardian.org\",\"password\":\"secret_pass\",\"password_confirmation\":\"secret_pass\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

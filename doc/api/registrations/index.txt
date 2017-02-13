@@ -1,0 +1,36 @@
+Sign up succesfully with an HTTP 201
+------------------------------------
+
+Parameters:
+  * email - Email of the new user
+  * password - Password of at least 8 characters
+  * password_confirmation - The same password again
+
+Request:
+  POST /users
+  Accept: application/json
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+  {"user":{"email":"joe@forestguardian.org","password":"secret_pass","password_confirmation":"secret_pass"}}
+
+Response:
+  Status: 201 Created
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 121
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"a103029e3468f61a93c533fd7fa0eb38"
+  Location: /
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 851f8870-9c16-4ddb-aee5-4966b9878992
+  X-Runtime: 0.097504
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 6,
+    "email": "joe@forestguardian.org",
+    "created_at": "2017-02-13T02:02:54.645Z",
+    "updated_at": "2017-02-13T02:02:54.647Z"
+  }

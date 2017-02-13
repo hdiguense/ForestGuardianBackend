@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registrations API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registrations API</h1>
+
+      <div class="article">
+        <h2>Sign up succesfully with an HTTP 201</h2>
+        <h3>POST /users</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">user[email]</span>
+                </td>
+                <td>
+                  <span class="description">Email of the new user</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[password]</span>
+                </td>
+                <td>
+                  <span class="description">Password of at least 8 characters</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[password_confirmation]</span>
+                </td>
+                <td>
+                  <span class="description">The same password again</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Response Fields</h3>
+          <table class="response-fields table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">user[id]</span>
+                </td>
+                <td>
+                  <span class="description">Id of the new created user</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[email]</span>
+                </td>
+                <td>
+                  <span class="description">Email of the new user</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[created_at]</span>
+                </td>
+                <td>
+                  <span class="description">Resource creation timestamp</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[updated_at]</span>
+                </td>
+                <td>
+                  <span class="description">Resource last update timestamp</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Accept: application/json
+Content-Type: application/json
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /users</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"user":{"email":"joe@forestguardian.org","password":"secret_pass","password_confirmation":"secret_pass"}}</pre>
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;http://localhost:3000/users&quot; -d &#39;{&quot;user&quot;:{&quot;email&quot;:&quot;joe@forestguardian.org&quot;,&quot;password&quot;:&quot;secret_pass&quot;,&quot;password_confirmation&quot;:&quot;secret_pass&quot;}}&#39; -X POST \
+	-H &quot;Accept: application/json&quot; \
+	-H &quot;Content-Type: application/json&quot; \
+	-H &quot;Host: example.org&quot; \
+	-H &quot;Cookie: &quot;</pre>
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Location: /
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;a103029e3468f61a93c533fd7fa0eb38&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 851f8870-9c16-4ddb-aee5-4966b9878992
+X-Runtime: 0.097504
+Content-Length: 121</pre>
+            <h4>Status</h4>
+            <pre class="response status">201 Created</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: 6,
+  &quot;email&quot;: &quot;joe@forestguardian.org&quot;,
+  &quot;created_at&quot;: &quot;2017-02-13T02:02:54.645Z&quot;,
+  &quot;updated_at&quot;: &quot;2017-02-13T02:02:54.647Z&quot;
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>
