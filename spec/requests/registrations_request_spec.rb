@@ -1,10 +1,11 @@
 require 'rails_helper'
-require "awesome_print"
+require 'awesome_print'
+require 'rspec_api_documentation/dsl'
 
-RSpec.describe 'User Registration', type: :request do
+RSpec.describe 'Registrations', type: :request do
 
   describe 'Sign up' do
-    it 'Sign up succesfully with an HTTP 201' do
+    example 'Sign up succesfully with an HTTP 201' do
 
       #request
       user = {
@@ -22,7 +23,7 @@ RSpec.describe 'User Registration', type: :request do
       expect( parsed_response['id'] ).to be_a_kind_of(Fixnum)
     end
 
-    it 'Sign up wrong with HTTP 422 when password_confirmation is wrong' do
+    example 'Sign up wrong with HTTP 422 when password_confirmation is wrong' do
 
       #request
       user = {

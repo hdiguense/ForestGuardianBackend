@@ -22,6 +22,15 @@ require_relative 'support/controller_helpers'
 require 'devise'
 # END BLOCK
 
+require 'rspec_api_documentation'
+
+# configuration for rspec_api_documentation gem
+# https://github.com/zipmark/rspec_api_documentation
+RspecApiDocumentation.configure do |config|
+  config.format = :json
+end
+
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -112,3 +121,4 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+

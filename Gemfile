@@ -107,10 +107,15 @@ group :development, :test do
   gem 'vcr'
   gem 'rails-controller-testing'
 
-  #Documentation
-  gem 'rspec_api_documentation'
-
 end
+
+### DOCUMENTATION ###
+
+# Automatic documentation based on RSpec specs examples.
+gem 'rspec_api_documentation'
+# Documentation Viewer
+gem 'apitome'
+
 
 # Logging
 gem 'awesome_print'
