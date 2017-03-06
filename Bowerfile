@@ -7,3 +7,5 @@ asset 'bootstrap'
 asset 'bootstrap-material-design'
 
 asset 'tether'
+
+asset 'classie'

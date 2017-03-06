@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :reportes
 
+  root 'map#show'
+
 end

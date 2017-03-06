@@ -1,9 +1,9 @@
 {
-  "resource": "Registrations",
+  "resource": "Sessions",
   "resource_explanation": null,
   "http_method": "POST",
-  "route": "/users",
-  "description": "Sign up succesfully with an HTTP 201",
+  "route": "/users/sign_in",
+  "description": "Sign in succesfully with an HTTP 201",
   "explanation": null,
   "parameters": [
     {
@@ -17,12 +17,6 @@
       "Type": "String",
       "name": "password",
       "description": "Password of at least 8 characters"
-    },
-    {
-      "scope": "user",
-      "Type": "String",
-      "name": "password_confirmation",
-      "description": "The same password again"
     }
   ],
   "response_fields": [
@@ -54,8 +48,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/users",
-      "request_body": "{\"user\":{\"email\":\"joe2@forestguardian.org\",\"password\":\"secret_pass\",\"password_confirmation\":\"secret_pass\"}}",
+      "request_path": "/users/sign_in",
+      "request_body": "{\"user\":{\"email\":\"danny@forestguardian.org\",\"password\":\"secret_pass\"}}",
       "request_headers": {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -67,22 +61,22 @@
       "request_content_type": "application/json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 12,\n  \"email\": \"joe2@forestguardian.org\",\n  \"created_at\": \"2017-03-06T15:34:36.672Z\",\n  \"updated_at\": \"2017-03-06T15:34:36.674Z\"\n}",
+      "response_body": "{\n  \"id\": 8,\n  \"email\": \"danny@forestguardian.org\",\n  \"created_at\": \"2017-03-06T15:32:04.396Z\",\n  \"updated_at\": \"2017-03-06T15:34:36.700Z\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Location": "/",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"da24d655f66e8ce054d5738cb487c344\"",
+        "ETag": "W/\"cba3608e327c4d383f8a938170e8508e\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "Set-Cookie": "_ForestGuardianBackend_session=RFl5eWtUcmh1MTY1SXRpSWlVM2NQejZPRjZzdEtyVE5GUG9zV2t6RjhtYUlQS2ZnbllrdkNLdWU1SllueURtZkRUaUdHTGxMMjNaYmtiYVk4emQzbzdLMDhxR01MeFNrdEJSa3B0T3dmTXpkR1VLODZBdzlvUjNGdzdFck5wQVBIZmUwbVE4aGlycTh3WGJSQ21DNERnPT0tLWFuUkdoQ291RGNNMDV3TUo4ejVvalE9PQ%3D%3D--bb2e9d3c132da4c600c1107eada8bc14309360cf; path=/; HttpOnly",
-        "X-Request-Id": "bb9e478f-8492-433f-87ed-d21a0206d11c",
-        "X-Runtime": "0.031746",
+        "Set-Cookie": "_ForestGuardianBackend_session=aEdJS1RtWm9YekdFT0NqZXdjdithdGVLS2ZRdENldmcvd0YwRG9TaHpZWjJxVlRwTXBsSXpxWU9UTWFjVXhmc1FPcnVmVzdiYit3MHlVVGttbFVqS2xTZytCUXl6SE1qZVJ3QUdWWmtjRVJDc3l1MGxkRldnL2NOWEJYQkFhcFYvMHpWeENONXB0RGpQbmt5NWtKb2Z3PT0tLVdPZU4xdzZZRCtPdmVUazFPdXZUSVE9PQ%3D%3D--e8642d1558ff041a7695f6b32b6358252aadb18b; path=/; HttpOnly",
+        "X-Request-Id": "ffdb01f2-aa20-4b41-8cc6-b260bbb8f33a",
+        "X-Runtime": "0.016185",
         "Content-Length": "123"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/users\" -d '{\"user\":{\"email\":\"joe2@forestguardian.org\",\"password\":\"secret_pass\",\"password_confirmation\":\"secret_pass\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/users/sign_in\" -d '{\"user\":{\"email\":\"danny@forestguardian.org\",\"password\":\"secret_pass\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

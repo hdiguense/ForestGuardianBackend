@@ -1,0 +1,36 @@
+Sign in succesfully with an HTTP 201
+------------------------------------
+
+Parameters:
+  * email - Email of the new user
+  * password - Password of at least 8 characters
+
+Request:
+  POST /users/sign_in
+  Accept: application/json
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+  {"user":{"email":"danny@forestguardian.org","password":"secret_pass"}}
+
+Response:
+  Status: 201 Created
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 123
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"cba3608e327c4d383f8a938170e8508e"
+  Location: /
+  Set-Cookie: _ForestGuardianBackend_session=aEdJS1RtWm9YekdFT0NqZXdjdithdGVLS2ZRdENldmcvd0YwRG9TaHpZWjJxVlRwTXBsSXpxWU9UTWFjVXhmc1FPcnVmVzdiYit3MHlVVGttbFVqS2xTZytCUXl6SE1qZVJ3QUdWWmtjRVJDc3l1MGxkRldnL2NOWEJYQkFhcFYvMHpWeENONXB0RGpQbmt5NWtKb2Z3PT0tLVdPZU4xdzZZRCtPdmVUazFPdXZUSVE9PQ%3D%3D--e8642d1558ff041a7695f6b32b6358252aadb18b; path=/; HttpOnly
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: ffdb01f2-aa20-4b41-8cc6-b260bbb8f33a
+  X-Runtime: 0.016185
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 8,
+    "email": "danny@forestguardian.org",
+    "created_at": "2017-03-06T15:32:04.396Z",
+    "updated_at": "2017-03-06T15:34:36.700Z"
+  }

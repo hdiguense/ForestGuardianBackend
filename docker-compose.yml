@@ -13,10 +13,8 @@ services:
       intranet:
         ipv4_address: 172.16.238.10
   web:
-    build: .
-    command: bash ./deploy/start.sh
-    volumes:
-      - .:/ForestGuardianBackend
+    image: cloud.canister.io:5000/emmamm05/forestguardian:latest
+    command: bash deploy/start.sh
     ports:
       - "3000:3000"
     depends_on:

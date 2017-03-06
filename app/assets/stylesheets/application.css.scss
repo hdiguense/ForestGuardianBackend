@@ -15,6 +15,14 @@
 @import "tether/dist/css/tether";
 @import "bootstrap/dist/css/bootstrap";
 @import "bootstrap-material-design/dist/bootstrap-material-design";
+@import "slide_and_push_menu";
+
+.centered-x {
+  position: relative;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translateX(-50%);
+}
 
 .centered-layout{
   position:absolute;

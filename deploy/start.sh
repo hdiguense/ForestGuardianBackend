@@ -1,4 +1,5 @@
-#/bin/bash
+#!/usr/bin/env bash
+sleep 5 # wait for postgresql service to start before doing any migration.
 rm -f tmp/pids/server.pid;
 rake db:setup;
 rake db:migrate;

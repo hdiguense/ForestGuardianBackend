@@ -12,6 +12,19 @@
           "method": "post"
         }
       ]
+    },
+    {
+      "name": "Sessions",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Sign in succesfully with an HTTP 201",
+          "link": "sessions/sign_in_succesfully_with_an_http_201.json",
+          "groups": "all",
+          "route": "/users/sign_in",
+          "method": "post"
+        }
+      ]
     }
   ]
 }

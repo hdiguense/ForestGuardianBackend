@@ -16,6 +16,8 @@
 //= require tether/dist/js/tether
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-material-design/dist/bootstrap-material-design.iife
+//= require classie
+//= require slide_and_push_menu
 //= require_tree .
 
 //http://bootsnipp.com/snippets/kE9rg
