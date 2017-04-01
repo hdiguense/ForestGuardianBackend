@@ -12,7 +12,7 @@ default: &default
   pool: 5
   username: forestguardian
   password: rVgJcwDvs5A7aMZG
-  host: 172.16.238.10
+  host: 192.168.99.100
   port: 5432
 
 development:

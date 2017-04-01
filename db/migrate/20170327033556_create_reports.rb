@@ -1,6 +1,6 @@
-class CreateReportes < ActiveRecord::Migration
+class CreateReports < ActiveRecord::Migration
   def change
-    create_table :reportes do |t|
+    create_table :reports do |t|
       t.string :name
       t.text :description
       t.float :geo_latitude

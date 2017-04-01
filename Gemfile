@@ -68,6 +68,7 @@ gem 'unicorn'
 
 # User authentication
 gem 'devise'
+gem 'devise_token_auth'
 
 # User authorization
 gem 'cancan'
