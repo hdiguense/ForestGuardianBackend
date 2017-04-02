@@ -12,12 +12,13 @@ default: &default
   pool: 5
   username: forestguardian
   password: rVgJcwDvs5A7aMZG
-  host: 192.168.99.100
+  host: 172.16.238.10
   port: 5432
 
 development:
   <<: *default
   database: forest_development
+  host: 192.168.99.100
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,6 +26,7 @@ development:
 test:
   <<: *default
   database: forest_test
+  host: 192.168.99.100
 
 production:
   <<: *default
