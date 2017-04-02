@@ -37,14 +37,12 @@ resource 'Sessions' do
     end
   end
 
-  post '/api/v1/auth' do
-    parameter :email, 'Email of the new user', scope: :user, 'Type': 'String'
-    parameter :password, 'Password of at least 8 characters', scope: :user, 'Type': 'String'
+  post '/api/v1/users/sign_in' do
+    parameter :email, 'Email of the new user', 'Type': 'String'
+    parameter :password, 'Password of at least 8 characters', 'Type': 'String'
 
-    response_field :id, 'Id of the new created user', scope: :user,'Type': 'Number'
-    response_field :email, 'Email of the new user', scope: :user,'Type': 'String'
-    response_field :created_at, 'Resource creation timestamp', scope: :user,'Type': 'String'
-    response_field :updated_at, 'Resource last update timestamp', scope: :user,'Type': 'String'
+    response_field :id, 'Id of the new created user', scope: :data,'Type': 'Number'
+    response_field :email, 'Email of the new user', scope: :data,'Type': 'String'
 
 
     #request
@@ -52,19 +50,17 @@ resource 'Sessions' do
     let(:password) { 'secret_pass' }
 
 
-    User.create(email:'danny@forestguardian.org', password:'secret_pass', password_confirmation:'secret_pass')
+    User.create(email:'danny@forestguardian.org', password:'secret_pass', password_confirmation:'secret_pass', provider: 'email')
 
     let(:raw_post) { params.to_json }
 
-    example_request 'Sign in succesfully with an HTTP 201' do
+    example_request 'Sign in succesfully with an HTTP 200' do
 
       #response
       user = JSON.parse(response_body)
 
-      expect(status).to eq(201)
-      expect(user.except('id','created_at','updated_at')).to eq({
-                                                                    'email' => email,
-                                                                })
+      expect(status).to eq(200)
+      expect(user['data']['email']).to eq(email)
 
     end
 
