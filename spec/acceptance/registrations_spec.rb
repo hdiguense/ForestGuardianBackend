@@ -4,9 +4,9 @@ require 'rspec_api_documentation/dsl'
 require 'acceptance_helper'
 
 resource 'Registrations' do
-  header "Accept", "application/json"
-  header "Content-Type", "application/json"
-  header "Accept", "application/json"
+  header 'Accept', 'application/json'
+  header 'Content-Type', 'application/json'
+  header 'Accept', 'application/json'
 
 
   post '/api/v1/users' do
