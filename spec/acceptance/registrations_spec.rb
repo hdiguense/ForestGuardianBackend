@@ -6,53 +6,32 @@ require 'acceptance_helper'
 resource 'Registrations' do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
+  header "Accept", "application/json"
 
-  post '/users' do
-    parameter :email, 'Email of the new user', scope: :user, 'Type': 'String'
-    parameter :password, 'Password of at least 8 characters', scope: :user, 'Type': 'String'
-    parameter :password_confirmation,  'The same password again', scope: :user,'Type': 'String'
 
-    response_field :id, 'Id of the new created user', scope: :user,'Type': 'Number'
-    response_field :email, 'Email of the new user', scope: :user,'Type': 'String'
-    response_field :created_at, 'Resource creation timestamp', scope: :user,'Type': 'String'
-    response_field :updated_at, 'Resource last update timestamp', scope: :user,'Type': 'String'
+  post '/api/v1/users' do
+    parameter :email, 'Email of the new user', 'Type': 'String'
+    parameter :password, 'Password of at least 8 characters', 'Type': 'String'
+
+    response_field :id, 'Id of the new created user', scope: :data,'Type': 'Number'
+    response_field :email, 'Email of the new user', scope: :data,'Type': 'String'
+
 
     #request
-    let(:email) { 'joe2@forestguardian.org' }
+    let(:email) { 'danny@forestguardian.org' }
     let(:password) { 'secret_pass' }
-    let(:password_confirmation) { 'secret_pass' }
 
     let(:raw_post) { params.to_json }
 
-    example_request 'Sign up succesfully with an HTTP 201' do
+    example_request 'Sign in succesfully with an HTTP 200' do
 
       #response
       user = JSON.parse(response_body)
 
-      expect(status).to eq(201)
-      expect(user.except('id','created_at','updated_at')).to eq({
-        'email' => email,
-      })
+      expect(status).to eq(200)
+      expect(user['data']['email']).to eq(email)
 
     end
-
-    # example_request 'Sign up wrong with HTTP 422 when password_confirmation is wrong' do
-    #   do_request
-    #
-    #   #request
-    #   user = {
-    #       email: 'joe@forestguardian.org',
-    #       password: 'secret_pass',
-    #       password_confirmation: 'bad_pass'
-    #   }
-    #   post '/users', user: user ,
-    #        format: :json
-    #
-    #   #response
-    #   expect(response).to have_http_status(422)
-    #   parsed_response = JSON.parse(response.body)
-    #   expect( parsed_response['errors']['password_confirmation'] ).to eq(['doesn\'t match Password'])
-    # end
 
   end
 
