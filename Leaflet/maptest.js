@@ -10,7 +10,7 @@
 //Global variables
 var currentFireCoordinates = null;
 
- var fireIcon = L.icon({
+var fireIcon = L.icon({
      iconUrl: 'fire.png',
      iconSize:     [32, 37],
      iconAnchor:   [16, 36],
@@ -46,6 +46,7 @@ var currentFireCoordinates = null;
      layer.on('click', function (e) {
        map.setView(e.latlng, 13);
        currentFireCoordinates = L.latLng(e.latlng.lat, e.latlng.lng);
+       removeRoute();
     });
  }
 
@@ -95,7 +96,6 @@ var route = L.Routing.control({
     createMarker: function() { return null; },
     router: L.Routing.graphHopper('c06e05f1-cd2f-4c9d-921c-06d634c9c8e9')
 });
-//route.hide();
 route.addTo(map);
 
 function setRouteFromTwoPoints(latitudeA, longitudeA, latitudeB, longitudeB) {
@@ -108,3 +108,19 @@ function setRouteFromTwoPoints(latitudeA, longitudeA, latitudeB, longitudeB) {
 function removeRoute() {
   route.setWaypoints([]);
 }
+
+/* Fire station mark */
+var fireStationIcon = L.icon({
+     iconUrl: 'firemen.png',
+     iconSize:     [32, 37],
+     iconAnchor:   [16, 36],
+     popupAnchor:  [0, -37]
+ });
+
+ function addFireStationMark(latitude, longitude) {
+   L.marker([latitude, longitude], {icon: fireStationIcon}).addTo(map);
+ }
+
+ function removeFireStationMark() {
+   map.removeLayer(fireStationIcon);
+ }
