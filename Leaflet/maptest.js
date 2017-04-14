@@ -69,13 +69,38 @@ var fireStationIcon = L.icon({
      iconAnchor:   [16, 36],
      popupAnchor:  [0, -37]
  });
+ var fireStationMarker = null;
 
  function addFireStationMark(latitude, longitude) {
-   L.marker([latitude, longitude], {icon: fireStationIcon}).addTo(map);
+   fireStationMarker = L.marker([latitude, longitude], {icon: fireStationIcon});
+   fireStationMarker.addTo(map);
  }
 
  function removeFireStationMark() {
-   map.removeLayer(fireStationIcon);
+   fireStationMarker.removeFrom(map);
+ }
+
+ function mobileShowDetails() {
+   try {
+     mobile.showWildfireDetails();
+   } catch(err) {
+     console.log("Error trying to invoke mobile method");
+   }
+ }
+
+ function addWildfireMessage(latitude, longitude, brightness, temperature, humidity) {
+   var popup = L.popup({offset: L.point(0, -37)})
+     .setLatLng(L.latLng(latitude, longitude))
+     .setContent('<b>Incendio</b>' +
+                 '<br>Intecidad: ' + brightness +
+                 '<br>Temperatura: ' + temperature + " &#8451;" +
+                 '<br>Humedad: ' + humidity + "%" +
+                 '<br><a href="javascript:mobileShowDetails();">Detalles</a>')
+     .openOn(map);
+ }
+
+ function removeWildfireMessage() {
+   map.closePopup();
  }
 
  /* Wildfire icon */
