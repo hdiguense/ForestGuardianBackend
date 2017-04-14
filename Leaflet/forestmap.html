@@ -3,7 +3,7 @@
 <head>
   <title>Forest Guardian</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
   <link rel="stylesheet" href="leaflet-layer-overpass/dist/OverPassLayer.css" />
   <link rel="stylesheet" href="node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
@@ -11,6 +11,7 @@
   <script src="leaflet-layer-overpass/dist/OverPassLayer.js"></script>
   <script type="text/javascript" src="leaflet.ajax.js"></script>
   <script src="node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <script src="node_modules/lrm-graphhopper/dist/lrm-graphhopper-1.1.2.js"></script>
   <style>
     body {
       padding: 0;
@@ -19,6 +20,10 @@
     html, body, #map {
       height: 100%;
       width: 100%;
+    }
+    .leaflet-right .leaflet-control {
+      margin-right: 10px;
+      display: none;
     }
   </style>
 </head>
