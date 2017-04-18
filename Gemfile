@@ -115,7 +115,7 @@ end
 # Automatic documentation based on RSpec specs examples.
 gem 'rspec_api_documentation'
 # Documentation Viewer
-gem 'apitome'
+# gem 'apitome'
 
 
 # Logging
