@@ -26,6 +26,7 @@ development:
 test:
   <<: *default
   database: forest_test
+  host: 192.168.99.101
 
 production:
   <<: *default

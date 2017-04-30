@@ -121,3 +121,5 @@ gem 'rspec_api_documentation'
 # Logging
 gem 'awesome_print'
 
+# Coverage
+gem 'simplecov', :require => false, :group => :test
