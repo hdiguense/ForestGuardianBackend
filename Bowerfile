@@ -10,6 +10,10 @@ asset 'tether'
 
 asset 'classie'
 
+asset 'leaflet'
+
+asset 'leaflet-ajax'
+
 asset 'leaflet-layer-overpass'
 
 asset 'leaflet-routing-machine'

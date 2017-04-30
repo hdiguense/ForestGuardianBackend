@@ -1,5 +1,7 @@
 class MapsController < ApplicationController
 
+  layout 'maps'
+
   def fires
 
   end
