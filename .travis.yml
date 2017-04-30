@@ -6,5 +6,5 @@ services:
   - docker
 
 before_install:
-- docker pull cloud.canister.io:5000/emmamm05/forestguardian
+- docker pull forestguardian/backend:latest
 - docker-compose start
