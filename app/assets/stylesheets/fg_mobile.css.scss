@@ -13,6 +13,6 @@
  */
 
 @import "maps";
-@import "leaflet/dist/leaflet";
+@import "leaflet";
 @import "leaflet-layer-overpass/dist/OverPassLayer";
-@import "leaflet-routing-machine/dist/leaflet-routing-machine";
+@import "leaflet-routing-machine";

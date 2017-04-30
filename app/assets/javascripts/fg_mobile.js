@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require leaflet/dist/leaflet
-//= require leaflet/dist/leaflet-src
-//= require leaflet-ajax/dist/leaflet.ajax
+//= require leaflet
+//= require leaflet-ajax
 //= require leaflet-layer-overpass/dist/OverPassLayer
-//= require leaflet-routing-machine/dist/leaflet-routing-machine
-//= require lrm-graphhopper/dist/lrm-graphhopper
+//= require leaflet-routing-machine
+//= require lrm-graphhopper
 //= require maps
