@@ -43,3 +43,4 @@ public/dev-assets
 
 # OSX files
 .DS_Store
+.env.web
