@@ -13,7 +13,8 @@ services:
       intranet:
         ipv4_address: 172.16.238.10
   web:
-    image: cloud.canister.io:5000/emmamm05/forestguardian:latest
+    #image: cloud.canister.io:5000/emmamm05/forestguardian:latest
+    build: .
     command: bash deploy/start.sh
     environment:
       RAILS_SERVE_STATIC_FILES: 1

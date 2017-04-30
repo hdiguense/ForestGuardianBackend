@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'maps/fires' => 'maps#fires'
+  get 'maps/windy' => 'maps#windy'
+
   resources :reports
 
   root 'map#show'
