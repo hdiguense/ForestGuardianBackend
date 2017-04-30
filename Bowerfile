@@ -9,3 +9,9 @@ asset 'bootstrap-material-design'
 asset 'tether'
 
 asset 'classie'
+
+asset 'leaflet-layer-overpass'
+
+asset 'leaflet-routing-machine'
+
+asset 'lrm-graphhopper'
