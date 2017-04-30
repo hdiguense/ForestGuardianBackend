@@ -40,3 +40,6 @@ public/assets/
 # Added by npm-rails
 /node_modules
 public/dev-assets
+
+# OSX files
+.DS_Store
