@@ -13,12 +13,12 @@ services:
       intranet:
         ipv4_address: 172.16.238.10
   web:
-    image: forestguardian/backend:latest
-    build: .
-    command: bash deploy/start.sh
     environment:
-      RAILS_ENV: production
-      RAILS_SERVE_STATIC_FILES: 1
+      - RAILS_ENV=production
+      - RAILS_SERVE_STATIC_FILES=1
+      - SECRET_KEY_BASE
+    image: forestguardian/backend:latest
+    command: bash deploy/start.sh
     ports:
       - "80:80"
     depends_on:
