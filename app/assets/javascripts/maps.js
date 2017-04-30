@@ -7,6 +7,11 @@ var map;
 var route;
 var fireStationMarker;
 var currentFireCoordinates;
+var gpsMarker;
+
+var fireIcon;
+var fireStationIcon;
+var markerIcon;
 
 function displayWildfiresDetails(lat, lng, brightness, scan, track, date, time, satellite, confidence, version, bright_t31, frp, daynight) {
     var jsonMODIS = {"LATITUDE":lat,
@@ -31,7 +36,16 @@ function displayWildfiresDetails(lat, lng, brightness, scan, track, date, time, 
 }
 
 function setUserCurrentLocation(latitude, longitude) {
+
+    // Center map on Location
     map.setView(L.latLng(latitude, longitude), 8);
+
+    // Initialize marker if null
+    if ( gpsMarker == null ){
+        gpsMarker = L.marker([latitude, longitude], {icon: markerIcon});
+        gpsMarker.addTo(map);
+    }
+
     try {
         mobile.notifyCurrentLocation();
     } catch (err) {
@@ -103,6 +117,8 @@ $(function() {
     route.addTo(map);
 
 
+
+
     /* Fire station mark */
     fireStationIcon = L.icon({
         iconUrl: 'firemen.png',
@@ -110,12 +126,18 @@ $(function() {
         iconAnchor:   [16, 36],
         popupAnchor:  [0, -37]
     });
-    var fireStationMarker = null;
+
+    markerIcon = L.icon({
+        iconUrl: '/assets/marker.png',
+        iconSize:     [60, 60],
+        iconAnchor:   [16, 36],
+        popupAnchor:  [0, -37]
+    });
 
 
     /* Wildfire icon */
 
-    var fireIcon = L.icon({
+    fireIcon = L.icon({
         iconUrl: '/assets/fire.png',
         iconSize:     [32, 37],
         iconAnchor:   [16, 36],
