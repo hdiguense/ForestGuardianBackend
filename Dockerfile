@@ -16,3 +16,4 @@ COPY Gemfile.lock /ForestGuardianBackend
 RUN bundle install
 # Copy code files.
 COPY . /ForestGuardianBackend
+RUN RAILS_ENV=production DB_ADAPTER=nulldb rake assets:precompile

@@ -17,7 +17,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-#https://github.com/colszowka/simplecov
+# https://github.com/colszowka/simplecov
 require 'simplecov'
 SimpleCov.start 'rails'
 
