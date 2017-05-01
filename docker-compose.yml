@@ -23,6 +23,7 @@ services:
       - db
     networks:
       intranet:
+        ipv4_address: 172.16.238.11
 
 volumes:
   vol-postgres: {}
