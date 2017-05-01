@@ -8,10 +8,13 @@ var route;
 var fireStationMarker;
 var currentFireCoordinates;
 var gpsMarker;
+var reportMarker;
 
 var fireIcon;
 var fireStationIcon;
 var markerIcon;
+var markerArea;
+var reportMarkerLocation = { 'latitude':0.0, 'longitude':0.0 }
 
 function displayWildfiresDetails(lat, lng, brightness, scan, track, date, time, satellite, confidence, version, bright_t31, frp, daynight) {
     var jsonMODIS = {"LATITUDE":lat,
@@ -51,6 +54,38 @@ function setUserCurrentLocation(latitude, longitude) {
     } catch (err) {
         console.log("Error trying to invoke mobile method");
     }
+}
+
+function addReportLocation( latitude, longitude ){
+
+    // Center map on Location
+    map.setView(L.latLng(latitude, longitude), 8);
+
+    // Initialize marker if null
+    if ( reportMarker == null ){
+        reportMarker = L.marker([latitude, longitude], {icon: markerArea, draggable:'true'});
+        reportMarkerLocation.latitude = latitude;
+        reportMarkerLocation.longitude = longitude;
+        reportMarker.addTo(map);
+        reportMarker.on("dragend",function(ev){
+            var position = ev.target.getLatLng();
+            reportMarkerLocation.latitude = position.lat;
+            reportMarkerLocation.longitude = position.lng;
+        });
+    }
+
+    try {
+        mobile.reportLocation();
+    } catch (err) {
+        console.log("Error trying to invoke mobile method");
+    }
+}
+
+function prepareReportLocation(){
+    console.log("prepareReportLocation");
+    console.log(reportMarkerLocation.latitude);
+    console.log(reportMarkerLocation.longitude);
+    mobile.reportLocation(reportMarkerLocation.latitude, reportMarkerLocation.longitude);
 }
 
 function setRouteFromTwoPoints(latitudeA, longitudeA, latitudeB, longitudeB) {
@@ -107,7 +142,6 @@ $(function() {
     map = new L.Map('map').addLayer(osm).setView(L.latLng(10.07568504578726, -84.31182861328125), 8);
 
     /* Routing */
-
     route = L.Routing.control({
         waypoints: [],
         routeWhileDragging: false,
@@ -116,22 +150,26 @@ $(function() {
     });
     route.addTo(map);
 
-
-
-
     /* Fire station mark */
     fireStationIcon = L.icon({
-        iconUrl: 'firemen.png',
+        iconUrl: '/assets/firemen.png',
         iconSize:     [32, 37],
         iconAnchor:   [16, 36],
         popupAnchor:  [0, -37]
     });
 
     markerIcon = L.icon({
-        iconUrl: '/assets/marker.png',
-        iconSize:     [60, 60],
-        iconAnchor:   [16, 36],
+        iconUrl: '/assets/marker-gps.png',
+        iconSize:     [16, 16],
+        iconAnchor:   [8, 8],
         popupAnchor:  [0, -37]
+    });
+
+    markerArea = L.icon({
+        iconUrl: '/assets/marker-area.png',
+        iconSize:     [180, 180],
+        iconAnchor:   [90, 90],
+        popupAnchor:  [0, 0]
     });
 
 
