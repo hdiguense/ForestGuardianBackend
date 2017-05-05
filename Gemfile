@@ -32,12 +32,6 @@ gem 'therubyracer', platforms: :ruby
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
-#
-# # npm
-# gem 'npm-rails'
-
-# bower
-gem 'bower-rails'
 
 
 ### FRONTEND - CSS ###
@@ -115,9 +109,23 @@ end
 # Automatic documentation based on RSpec specs examples.
 gem 'rspec_api_documentation'
 # Documentation Viewer
-gem 'apitome'
+# gem 'apitome'
 
 
 # Logging
 gem 'awesome_print'
 
+# Coverage
+gem 'simplecov', :require => false, :group => :test
+
+# http://blog.zeit.io/use-a-fake-db-adapter-to-play-nice-with-rails-assets-precompilation/
+gem 'activerecord-nulldb-adapter'
+
+# Use bower repository.
+source 'https://rails-assets.org' do
+  gem 'rails-assets-leaflet'
+  gem 'rails-assets-leaflet-ajax'
+  gem 'rails-assets-leaflet-layer-overpass'
+  gem 'rails-assets-leaflet-routing-machine'
+  gem 'rails-assets-lrm-graphhopper'
+end

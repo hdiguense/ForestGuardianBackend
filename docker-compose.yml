@@ -13,14 +13,17 @@ services:
       intranet:
         ipv4_address: 172.16.238.10
   web:
-    image: cloud.canister.io:5000/emmamm05/forestguardian:latest
+    env_file:
+      - '.env.web'
+    image: forestguardian/backend:latest
     command: bash deploy/start.sh
     ports:
-      - "3000:3000"
+      - "80:80"
     depends_on:
       - db
     networks:
       intranet:
+        ipv4_address: 172.16.238.11
 
 volumes:
   vol-postgres: {}

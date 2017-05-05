@@ -1,60 +1,61 @@
 class ReportsController < ApplicationController
-  before_action :set_reporte, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :edit, :update, :destroy]
 
-  # GET /reportes
-  # GET /reportes.json
+  # GET /reports
+  # GET /reports.json
   def index
-    @reportes = Report.all
+    @reports = Report.all
   end
 
-  # GET /reportes/1
-  # GET /reportes/1.json
+  # GET /reports/1
+  # GET /reports/1.json
   def show
   end
 
-  # GET /reportes/new
+  # GET /reports/new
   def new
-    @reporte = Report.new
+    @report = Report.new
   end
 
-  # GET /reportes/1/edit
+  # GET /reports/1/edit
   def edit
   end
 
-  # POST /reportes
-  # POST /reportes.json
+  # POST /reports
+  # POST /reports.json
   def create
-    @reporte = Report.new(reporte_params)
+    @report = Report.new(report_params)
+    @report.author = current_user
 
     respond_to do |format|
-      if @reporte.save
-        format.html { redirect_to @reporte, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @reporte }
+      if @report.save
+        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
-        format.json { render json: @reporte.errors, status: :unprocessable_entity }
+        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /reportes/1
-  # PATCH/PUT /reportes/1.json
+  # PATCH/PUT /reports/1
+  # PATCH/PUT /reports/1.json
   def update
     respond_to do |format|
-      if @reporte.update(reporte_params)
-        format.html { redirect_to @reporte, notice: 'Report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reporte }
+      if @report.update(report_params)
+        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
-        format.json { render json: @reporte.errors, status: :unprocessable_entity }
+        format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /reportes/1
-  # DELETE /reportes/1.json
+  # DELETE /reports/1
+  # DELETE /reports/1.json
   def destroy
-    @reporte.destroy
+    @report.destroy
     respond_to do |format|
       format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,12 +64,12 @@ class ReportsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_reporte
-      @reporte = Report.find(params[:id])
+    def set_report
+      @report = Report.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def reporte_params
-      params.require(:reporte).permit(:name, :description, :geo_latitude, :geo_longitude)
+    def report_params
+      params.require(:report).permit(:title, :description, :geo_latitude, :geo_longitude, :comments)
     end
 end

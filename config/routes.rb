@@ -11,8 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reports
+  # map views
+  get 'maps/fires' => 'maps#fires'
+  get 'maps/windy' => 'maps#windy'
 
-  root 'map#show'
+  # modis data
+  get 'modis_data/fires' => 'modis_data#fires'
+
+  resources :reports
 
 end

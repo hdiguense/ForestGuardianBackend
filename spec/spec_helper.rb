@@ -17,6 +17,10 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+# https://github.com/colszowka/simplecov
+require 'simplecov'
+SimpleCov.start 'rails'
+
 # BLOCK: following guide http://willschenk.com/setting-up-testing/
 require_relative 'support/controller_helpers'
 require 'devise'

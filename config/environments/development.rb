@@ -41,7 +41,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.assets.prefix = '/dev-assets'
+  # config.assets.prefix = '/dev-assets'
+
+  config.web_console.whitelisted_ips = '192.168.9.104'
 
   # config.npm.run_before_assets_precompile = true
 
