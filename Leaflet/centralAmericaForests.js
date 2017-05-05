@@ -14,3 +14,27 @@ var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
   transparent: true,
   format: 'image/png'
 }).addTo(map);
+
+/* Forest types for Honduras */
+var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
+  layers:'bi21_tipos_bosque_honduras_2015_v2',
+  styles: 'bi21_tipos_bosque_honduras_2015',
+  transparent: true,
+  format: 'image/png'
+}).addTo(map);
+
+/* Forest types for El Salvador */
+var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
+  layers:'bi19_tipos_bosque_el_salvador_2015',
+  styles: 'bi19_tipos_bosque_el_salvador_2015',
+  transparent: true,
+  format: 'image/png'
+}).addTo(map);
+
+/* Forest types for Belice */
+var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
+  layers:'bi15_tipos_bosque_belice_2015',
+  styles: 'bi15_tipos_bosque_belice_2015',
+  transparent: true,
+  format: 'image/png'
+}).addTo(map);
