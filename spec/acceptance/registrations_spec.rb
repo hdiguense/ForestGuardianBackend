@@ -18,12 +18,14 @@ resource 'Registrations' do
 
 
     #request
-    let(:email) { 'danny@forestguardian.org' }
+    let(:email) { "#{SecureRandom.hex(6)}@forestguardian.org" }
     let(:password) { 'secret_pass' }
 
     let(:raw_post) { params.to_json }
 
     example_request 'Sign in succesfully with an HTTP 200' do
+
+      puts "#{response_body}"
 
       #response
       user = JSON.parse(response_body)
