@@ -6,8 +6,6 @@ require 'acceptance_helper'
 resource 'Registrations' do
   header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
-  header 'Accept', 'application/json'
-
 
   post '/api/v1/users' do
     parameter :email, 'Email of the new user', 'Type': 'String'
@@ -23,7 +21,7 @@ resource 'Registrations' do
 
     let(:raw_post) { params.to_json }
 
-    example_request 'Sign in succesfully with an HTTP 200' do
+    example_request 'Sign in successfully with an HTTP 200' do
 
       puts "#{response_body}"
 
