@@ -67,17 +67,15 @@ function addReportLocation( latitude, longitude ){
         reportMarkerLocation.latitude = latitude;
         reportMarkerLocation.longitude = longitude;
         reportMarker.addTo(map);
+        console.log("latitude: " + reportMarkerLocation.latitude);
+        console.log("longitude: " + reportMarkerLocation.longitude);
         reportMarker.on("dragend",function(ev){
             var position = ev.target.getLatLng();
             reportMarkerLocation.latitude = position.lat;
             reportMarkerLocation.longitude = position.lng;
+            console.log("latitude: " + reportMarkerLocation.latitude);
+            console.log("longitude: " + reportMarkerLocation.longitude);
         });
-    }
-
-    try {
-        mobile.reportLocation();
-    } catch (err) {
-        console.log("Error trying to invoke mobile method");
     }
 }
 
