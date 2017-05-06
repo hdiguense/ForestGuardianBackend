@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.text     "description"
     t.float    "geo_latitude"
     t.float    "geo_longitude"
-    t.integer  "author_id"
     t.boolean  "closed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "comments"
+    t.integer  "author_id"
+    t.index ["author_id"], name: "index_reports_on_author_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

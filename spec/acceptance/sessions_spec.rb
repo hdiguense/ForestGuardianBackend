@@ -19,10 +19,10 @@ resource 'Sessions' do
 
     #request
     let(:email) { 'danny@forestguardian.org' }
-    let(:password) { 'secret_pass' }
+    let(:password) { '12341234' }
 
 
-    User.create(email:'danny@forestguardian.org', password:'secret_pass', password_confirmation:'secret_pass')
+    User.create(email:'testing@forestguardian.org', password:'12341234', password_confirmation:'12341234')
 
     let(:raw_post) { params.to_json }
 
@@ -46,11 +46,11 @@ resource 'Sessions' do
 
 
     #request
-    let(:email) { 'danny@forestguardian.org' }
-    let(:password) { 'secret_pass' }
+    let(:email) { 'testing@forestguardian.org' }
+    let(:password) { '12341234' }
 
 
-    User.create(email:'danny@forestguardian.org', password:'secret_pass', password_confirmation:'secret_pass', provider: 'email')
+    User.create(email:'danny@forestguardian.org', password:'12341234', password_confirmation:'12341234', provider: 'email')
 
     let(:raw_post) { params.to_json }
 

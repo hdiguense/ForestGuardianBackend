@@ -6,8 +6,13 @@ require 'acceptance_helper'
 resource 'Reports' do
   header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
-  header 'X-User-Email', 'testing@forestguardian.org'
-  header 'X-User-Token', '$2a$10$xYmT8cLUheIbK2sIynok7uxJFzDCOxQNppstXlMeCytB1gw/mkhC.'
+
+  # Authentication Headers
+  header 'uid', 'testing@forestguardian.org'
+  header 'access-token', 'ssN4k-e8IkWJLKVO0s6mYw'
+  header 'client', 'SH1JKv2Qd3znwS1ConW0ug'
+  header 'expiry', '1495317861'
+  header 'token-type', 'Bearer'
 
 
   post '/reports' do
@@ -23,6 +28,16 @@ resource 'Reports' do
     response_field :comments, 'Comments about the route to the fire.', scope: :report,'Type': 'String'
     response_field :created_at, 'Resource creation timestamp', scope: :report,'Type': 'String'
     response_field :updated_at, 'Resource last update timestamp', scope: :report,'Type': 'String'
+
+    User.create(email:'testing@forestguardian.org', password:'12341234', password_confirmation:'12341234',
+                provider: 'email', uid: 'testing@forestguardian.org', sign_in_count: 0, tokens: {
+            "SH1JKv2Qd3znwS1ConW0ug" => {
+                "token" => "$2a$10$F2i8pKNl1DNB2/gU4kATguR5jqNYYFLvtrZ.wTetmNDj/aLeTU1fy",
+                "expiry" => 1495314801,
+                "last_token" => "$2a$10$yj41.PMVDNAc0j7UD.ZgUe8brvoXXJkn1j2vFSuJbtys7e.uesnmW",
+                "updated_at" => "2017-05-06T15:13:21.160-06:00"
+            }
+        } )
 
 
     #request

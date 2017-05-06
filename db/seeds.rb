@@ -6,13 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email:'testing@forestguardian.org', password:'pojapoja', password_confirmation:'pojapoja',
+User.create(email:'testing@forestguardian.org', password:'12341234', password_confirmation:'12341234',
   provider: 'email', uid: 'testing@forestguardian.org', sign_in_count: 0, tokens: {
-        "ltGevLcdN17qHfeLB0bX6Q" => {
-            "token" => "$2a$10$xYmT8cLUheIbK2sIynok7uxJFzDCOxQNppstXlMeCytB1gw/mkhC.",
-            "expiry" => 1495176417,
-            "last_token" => "$2a$10$15O9B0rsMDN0jTxA4eGv4es1VzIUYpMFJ7GMRweYxwi3B5GCVojga",
-            "updated_at" => "2017-05-05T00:46:57.130-06:00"
+        "SH1JKv2Qd3znwS1ConW0ug" => {
+            "token" => "$2a$10$F2i8pKNl1DNB2/gU4kATguR5jqNYYFLvtrZ.wTetmNDj/aLeTU1fy",
+            "expiry" => 1495314801,
+            "last_token" => "$2a$10$yj41.PMVDNAc0j7UD.ZgUe8brvoXXJkn1j2vFSuJbtys7e.uesnmW",
+            "updated_at" => "2017-05-06T15:13:21.160-06:00"
         }
-    }
-)
+    } )

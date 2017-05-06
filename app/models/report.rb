@@ -1,6 +1,6 @@
 class Report < ActiveRecord::Base
 
-  has_one :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
   # region validations
   validates_presence_of :title
