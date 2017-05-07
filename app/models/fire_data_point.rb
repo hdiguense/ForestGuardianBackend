@@ -1,0 +1,2 @@
+class FireDataPoint < ApplicationRecord
+end

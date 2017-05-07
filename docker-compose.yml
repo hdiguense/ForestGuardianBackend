@@ -13,6 +13,13 @@ services:
     networks:
       intranet:
         ipv4_address: 172.16.238.10
+  redis:
+    image: library/redis:3.0.7
+    ports:
+          - '6379:6379'
+    networks:
+          intranet:
+            ipv4_address: 172.16.238.11
   web:
     env_file:
       - '.env.web'
@@ -24,7 +31,7 @@ services:
       - db
     networks:
       intranet:
-        ipv4_address: 172.16.238.11
+        ipv4_address: 172.16.238.12
 
 volumes:
   vol-postgres: {}

@@ -132,3 +132,13 @@ end
 
 # PostGis
 gem 'activerecord-postgis-adapter'
+gem 'rgeo'
+gem 'rgeo-shapefile'
+gem 'rgeo-geojson'
+
+# Sidekiq
+gem 'sidekiq'
+gem 'sidekiq-cron'
+
+# Zip
+gem 'zipruby'

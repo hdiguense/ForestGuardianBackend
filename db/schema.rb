@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170507031902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "fire_data_points", force: :cascade do |t|
+    t.decimal   "brightness"
+    t.decimal   "scan"
+    t.decimal   "track"
+    t.datetime  "acq_datetime"
+    t.string    "satellite"
+    t.string    "confidence"
+    t.string    "version"
+    t.decimal   "bright_t31"
+    t.decimal   "frp"
+    t.string    "daynight"
+    t.geography "coordinates", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +44,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "comments"
     t.integer  "author_id"
     t.index ["author_id"], name: "index_reports_on_author_id", using: :btree
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
