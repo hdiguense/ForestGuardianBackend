@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170507031902) do
     t.decimal   "bright_t31"
     t.decimal   "frp"
     t.string    "daynight"
-    t.geography "coordinates", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}
+    t.geography "coordinates", limit: {:srid=>4326, :type=>"st_point", :has_z=>false, :geographic=>true}
 
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

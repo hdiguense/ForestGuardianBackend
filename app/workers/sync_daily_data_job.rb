@@ -10,10 +10,10 @@ class SyncDailyDataJob < ActiveJob::Base
   def unzip(buffer_data)
     require 'zipruby'
     Zip::Archive.open_buffer(buffer_data) do |zf|
-      basename = "#{Time.now.getutc.to_i}"
+      basename = "data/#{Time.now.getutc.to_i}"
       zf.each do |entry|
         extension = entry.name.split('.').last
-        File.open( "data/#{basename}.#{extension}",'w:ASCII-8BIT') do |file|
+        File.open( "#{basename}.#{extension}",'w:ASCII-8BIT') do |file|
           file.write( entry.read )
           puts "#{basename}.#{extension} written"
         end
@@ -32,11 +32,32 @@ class SyncDailyDataJob < ActiveJob::Base
         puts "Record number #{record.index}:"
         puts "  Geometry: #{record.geometry.as_json}"
         puts "  Attributes: #{record.attributes.inspect}"
+        createFireDataPointRecord record.attributes, record.geometry
       end
       file.rewind
       record = file.next
-      puts "First record geometry was: #{record.geometry.as_text}"
     end
+  end
+
+  def createFireDataPointRecord(attrs,geometry)
+    d = attrs['ACQ_DATE']
+    t = Time.parse("#{attrs['ACQ_TIME'][0,2]}:#{attrs['ACQ_TIME'][2,2]}")
+
+    fireDataPoint = FireDataPoint.new
+    fireDataPoint.brightness = attrs['BRIGHTNESS']
+    fireDataPoint.scan = attrs['SCAN']
+    fireDataPoint.track = attrs['TRACK']
+    fireDataPoint.acq_datetime = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+    fireDataPoint.satellite = attrs['SATELLITE']
+    fireDataPoint.confidence = attrs['CONFIDENCE']
+    fireDataPoint.version = attrs['VERSION']
+    fireDataPoint.bright_t31 = attrs['BRIGHT_T31']
+    fireDataPoint.frp = attrs['FRP']
+    fireDataPoint.daynight = attrs['DAYNIGHT']
+    fireDataPoint.coordinates = geometry
+
+    fireDataPoint.save!
+
   end
 
   def perform()
