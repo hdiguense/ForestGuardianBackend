@@ -1,0 +1,4 @@
+sync_daily_data_job:
+  cron: "* */6 * * *"
+  class: "SyncDailyDataJob"
+  queue: default

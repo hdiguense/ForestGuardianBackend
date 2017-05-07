@@ -20,18 +20,26 @@ services:
     networks:
           intranet:
             ipv4_address: 172.16.238.11
+  sidekiq:
+    build: .
+    environment:
+      RAILS_ENV: production
+    command: bundle exec sidekiq
+    networks:
+      intranet:
+        ipv4_address: 172.16.238.12
   web:
     env_file:
       - '.env.web'
-    image: forestguardian/backend:latest
-    command: bash deploy/start.sh
+    build: .
+    command: bundle exec rails s unicorn -p 80 -b '0.0.0.0'
     ports:
       - "80:80"
     depends_on:
       - db
     networks:
       intranet:
-        ipv4_address: 172.16.238.12
+        ipv4_address: 172.16.238.13
 
 volumes:
   vol-postgres: {}

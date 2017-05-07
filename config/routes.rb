@@ -22,5 +22,8 @@ Rails.application.routes.draw do
 
   resources :reports
 
-  mount Sidekiq::Web, at: '/sidekiq'
+  require 'sidekiq/web'
+  require 'sidekiq/cron/web'
+  mount Sidekiq::Web => '/sidekiq'
+
 end

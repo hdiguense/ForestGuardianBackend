@@ -15,5 +15,4 @@ class ApplicationController < ActionController::Base
     ::Rails.logger.error("Redirected by #{caller(1).first rescue "unknown"}")
     super(options, response_status)
   end
-
 end

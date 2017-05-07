@@ -1,4 +1,7 @@
 class SyncDailyDataJob < ActiveJob::Base
+
+  require 'rgeo/shapefile'
+  require 'zipruby'
   require 'rgeo/shapefile'
 
   def download(url)
@@ -8,7 +11,6 @@ class SyncDailyDataJob < ActiveJob::Base
   end
 
   def unzip(buffer_data)
-    require 'zipruby'
     Zip::Archive.open_buffer(buffer_data) do |zf|
       basename = "data/#{Time.now.getutc.to_i}"
       zf.each do |entry|
@@ -24,8 +26,6 @@ class SyncDailyDataJob < ActiveJob::Base
   end
 
   def readShapefile(shapefile)
-    require 'rgeo/shapefile'
-
     RGeo::Shapefile::Reader.open(shapefile) do |file|
       puts "File contains #{file.num_records} records."
       file.each do |record|
