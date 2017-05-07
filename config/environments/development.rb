@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # config.assets.prefix = '/dev-assets'
 
-  config.web_console.whitelisted_ips = '192.168.9.104'
+  config.web_console.whitelisted_ips = '192.168.0.0/16'
 
   # config.npm.run_before_assets_precompile = true
 
