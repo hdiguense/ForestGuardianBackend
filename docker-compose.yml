@@ -1,8 +1,7 @@
 version: '2'
 services:
   db:
-    build:
-      context: ./containers/postgres
+    image: forestguardian/postgres_postgis
     environment:
       POSTGRES_USER: forestguardian
       POSTGRES_PASSWORD: rVgJcwDvs5A7aMZG
@@ -21,7 +20,7 @@ services:
           intranet:
             ipv4_address: 172.16.238.11
   sidekiq:
-    build: .
+    image: forestguardian/backend
     environment:
       RAILS_ENV: production
     command: bundle exec sidekiq
@@ -31,7 +30,7 @@ services:
   web:
     env_file:
       - '.env.web'
-    build: .
+    image: forestguardian/backend
     command: bundle exec rails s unicorn -p 80 -b '0.0.0.0'
     ports:
       - "80:80"
