@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    <% @fires.each do |fire| %>
+    {
+      "type": "Feature",
+      "properties": {
+        "brightness": <%= fire.brightness %>,
+        "scan": <%= fire.scan %>,
+        "track": <%= fire.scan %>,
+        "acquisition_time": <%= fire.acq_datetime %>,
+        "satellite": <%= fire.satellite %>,
+        "confidence": <%= fire.confidence %>,
+        "version": <%= fire.version %>,
+        "bright_t31": <%= fire.bright_t31 %>,
+        "frp": <%= fire.frp %>,
+        "daynight": <%= fire.daynight %>
+      }
+    }
+    <% end %>
+  ]
+}
