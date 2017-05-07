@@ -129,3 +129,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet-routing-machine'
   gem 'rails-assets-lrm-graphhopper'
 end
+
+# PostGis
+gem 'activerecord-postgis-adapter'

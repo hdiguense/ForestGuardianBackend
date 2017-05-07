@@ -1,10 +1,11 @@
 version: '2'
 services:
   db:
-    image: sameersbn/postgresql:9.6-2
+    build:
+      context: ./containers/postgres
     environment:
-        DB_USER: forestguardian
-        DB_PASS: rVgJcwDvs5A7aMZG
+      POSTGRES_USER: forestguardian
+      POSTGRES_PASSWORD: rVgJcwDvs5A7aMZG
     ports:
       - '5432:5432'
     volumes:
