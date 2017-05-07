@@ -15,6 +15,13 @@
         "bright_t31": <%= fire.bright_t31 %>,
         "frp": <%= fire.frp %>,
         "daynight": <%= fire.daynight %>
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          <%= fire.coordinates.x %>,
+          <%= fire.coordinates.y %>
+        ]
       }
     }
     <% end %>
