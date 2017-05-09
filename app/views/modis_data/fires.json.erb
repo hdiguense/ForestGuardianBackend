@@ -1,8 +1,9 @@
 {
   "type": "FeatureCollection",
-  "version":"1",
   "features": [
+    <% delimiter = '' %>
     <% @fires.each do |fire| %>
+    <%= delimiter %>
     {
       "type": "Feature",
       "properties": {
@@ -25,6 +26,7 @@
         ]
       }
     }
+    <% delimiter = ',' %>
     <% end %>
   ]
 }
