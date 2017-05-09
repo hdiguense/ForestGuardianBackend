@@ -24,18 +24,24 @@ services:
     environment:
       RAILS_ENV: production
     command: bundle exec sidekiq -C /ForestGuardianBackend/config/sidekiq.yml
+    depends_on:
+      - redis
+      - db
     networks:
       intranet:
         ipv4_address: 172.16.238.12
   web:
     env_file:
       - '.env.web'
-    build: .
+    build:
+      context: .
     command: bundle exec rails s -p 80 -b '0.0.0.0'
     ports:
       - "80:80"
     depends_on:
       - db
+      - redis
+      - sidekiq
     networks:
       intranet:
         ipv4_address: 172.16.238.13

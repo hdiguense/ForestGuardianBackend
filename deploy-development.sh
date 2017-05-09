@@ -24,9 +24,9 @@ function fg_start {
 }
 
 function fg_reload {
-    docker-compose -f docker-compose-development.yml stop
-    docker-compose -f docker-compose-development.yml build
-    docker-compose -f docker-compose-development.yml start
+    docker-compose -f docker-compose-development.yml stop web
+    docker-compose -f docker-compose-development.yml build web
+    docker-compose -f docker-compose-development.yml start web
 }
 
 function fg_ip {
