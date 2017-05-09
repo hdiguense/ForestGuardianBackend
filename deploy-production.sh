@@ -14,6 +14,7 @@ function fg_start {
     set -x
     fg_activate_machine
     cd containers/production
+    # --build-arg CACHE_DATE=$(date) forces docker to build the image after a particular step.
     docker build --build-arg CACHE_DATE=$(date) -t forestguardian/backend .
     docker push forestguardian/backend
     cd ../..
