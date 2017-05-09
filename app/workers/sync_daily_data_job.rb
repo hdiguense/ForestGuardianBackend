@@ -2,7 +2,6 @@ class SyncDailyDataJob < ActiveJob::Base
 
   require 'rgeo/shapefile'
   require 'zipruby'
-  require 'rgeo/shapefile'
 
   def download(url)
     uri = URI(url)
