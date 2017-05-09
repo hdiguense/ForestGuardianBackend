@@ -23,7 +23,7 @@ services:
     image: forestguardian/backend
     environment:
       RAILS_ENV: production
-    command: bundle exec sidekiq
+    command: bundle exec sidekiq -C /ForestGuardianBackend/config/sidekiq.yml
     networks:
       intranet:
         ipv4_address: 172.16.238.12
@@ -31,7 +31,7 @@ services:
     env_file:
       - '.env.web'
     image: forestguardian/backend
-    command: bundle exec rails s unicorn -p 80 -b '0.0.0.0'
+    command: bundle exec rails s -p 80 -b '0.0.0.0'
     ports:
       - "80:80"
     depends_on:
