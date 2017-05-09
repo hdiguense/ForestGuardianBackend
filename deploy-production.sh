@@ -13,6 +13,10 @@ function fg_clean {
 function fg_start {
     set -x
     fg_activate_machine
+    cd containers/production
+    docker build --build-arg CACHE_DATE=$(date) -t forestguardian/backend .
+    docker push forestguardian/backend
+    cd ../..
     docker-compose -f docker-compose-production.yml build
     docker-compose -f docker-compose-production.yml up -d redis db
     sleep 10
