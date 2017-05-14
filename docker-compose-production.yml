@@ -21,6 +21,8 @@ services:
             ipv4_address: 172.16.238.11
   sidekiq:
     image: forestguardian/backend
+    env_file:
+      - '.env.web'
     environment:
       RAILS_ENV: production
     command: bundle exec sidekiq -C /ForestGuardianBackend/config/sidekiq.yml

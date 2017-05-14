@@ -146,4 +146,4 @@ gem 'zipruby'
 gem 'paperclip'
 
 # AWS
-gem 'aws-sdk'
+gem 'aws-sdk-v1'
