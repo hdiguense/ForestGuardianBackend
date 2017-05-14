@@ -141,3 +141,9 @@ gem 'sidekiq-cron'
 
 # Zip
 gem 'zipruby'
+
+# Paperclip
+gem 'paperclip'
+
+# AWS
+gem 'aws-sdk'

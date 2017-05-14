@@ -11,4 +11,9 @@ class Report < ActiveRecord::Base
   validates_presence_of :author
   # endregion
 
+  has_attached_file :picture, styles: {
+      thumb: '100x100>',
+      big: '1024x1024>'
+  }
+
 end

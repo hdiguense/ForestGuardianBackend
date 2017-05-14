@@ -15,7 +15,7 @@ function fg_clean {
 function fg_start {
     set -x
     fg_activate_machine
-    docker-compose -f docker-compose-development.yml build
+    docker-compose -f docker-compose-development.yml build .
     docker-compose -f docker-compose-development.yml up -d redis db
     sleep 10
     RAILS_ENV=production docker-compose -f docker-compose-development.yml run web bundle exec rake db:create
