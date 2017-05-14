@@ -16,5 +16,6 @@ WORKDIR /ForestGuardianBackend
 # Install gems.
 RUN bundle install
 
+RUN RAILS_ENV=production DB_ADAPTER=nulldb rake assets:clean
 RUN RAILS_ENV=production DB_ADAPTER=nulldb rake assets:precompile
 RUN mkdir -p /ForestGuardianBackend/tmp/pids
