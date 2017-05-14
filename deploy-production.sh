@@ -11,14 +11,12 @@ function fg_clean {
 }
 
 function fg_start {
-    set -x
     fg_activate_machine
     cd containers/production
     # --build-arg CACHE_DATE=$(date) forces docker to build the image after a particular step.
-    docker build --build-arg CACHE_DATE=$(date) -t forestguardian/backend .
+    docker build --build-arg CACHE_DATE=$(date +%s) -t forestguardian/backend .
     docker push forestguardian/backend
     cd ../..
-    docker-compose -f docker-compose-production.yml build
     docker-compose -f docker-compose-production.yml up -d redis db
     # waits for database to be initialized.
     sleep 10
@@ -29,7 +27,6 @@ function fg_start {
     RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rake db:seed
     # start services that depend on db
     docker-compose -f docker-compose-production.yml up -d sidekiq web
-    set +x
 }
 
 function fg_reload {
