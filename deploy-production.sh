@@ -25,8 +25,13 @@ function fg_start {
     RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rake db:schema:load
     RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rake db:migrate
     RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rake db:seed
-    # start services that depend on db
-    docker-compose -f docker-compose-production.yml up -d sidekiq web
+
+    docker-compose -f docker-compose-production.yml up -d sidekiq
+
+    # sync with NASA files.
+    RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rails runner -s 'SyncDailyDataJob.new.perform'
+
+    docker-compose -f docker-compose-production.yml up -d web
 }
 
 function fg_reload {
