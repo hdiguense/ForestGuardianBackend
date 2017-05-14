@@ -29,7 +29,7 @@ function fg_start {
     docker-compose -f docker-compose-production.yml up -d sidekiq
 
     # sync with NASA files.
-    RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rails runner -s 'SyncDailyDataJob.new.perform'
+    RAILS_ENV=production docker-compose -f docker-compose-production.yml run web bundle exec rails runner 'SyncDailyDataJob.new.perform'
 
     docker-compose -f docker-compose-production.yml up -d web
 }
