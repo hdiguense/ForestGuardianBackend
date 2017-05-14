@@ -13,7 +13,6 @@
 //= require jquery
 //= require leaflet
 //= require leaflet-ajax
-//= require leaflet-layer-overpass/dist/OverPassLayer
 //= require leaflet-routing-machine
 //= require lrm-graphhopper
 //= require maps

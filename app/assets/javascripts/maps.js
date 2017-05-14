@@ -9,7 +9,7 @@ var fireStationMarker;
 var currentFireCoordinates;
 var gpsMarker;
 var reportMarker;
-
+var MODISLayer;
 var fireIcon;
 var fireStationIcon;
 var markerIcon;
@@ -194,6 +194,8 @@ function onEachFeature(feature, layer) {
 //@function downloadMODISData
 //Function that downloads the MODIS data from the backend
 function downloadMODISData() {
+    console.log('downloading modis data...');
+
     var bounds = map.getBounds();
 
     var data = new FormData();
@@ -210,16 +212,16 @@ function downloadMODISData() {
             try {
                 var geoJSONData = JSON.parse(this.responseText);
                 MODISLayer.clearLayers();
+                console.log(this.responseText);
                 MODISLayer.addData(geoJSONData);
             } catch (err) {
-                console.log("Error downloading the MODIS data");
+                console.log("Error downloading the MODIS data: " + err);
             }
         }
     });
 
-    xhr.open("POST", "http://app.forestguardian.org/modis_data/fires.json");
+    xhr.open("POST", "/modis_data/fires.json");
     xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader("postman-token", "300ba138-f388-a8c1-20c9-57f27367e9ba");
 
     xhr.send(data);
 }
@@ -231,7 +233,7 @@ function downloadMODISData() {
 function checkZoomLevel() {
     var zoomLevel = map.getZoom();
     console.log("Zoom level: " + zoomLevel);
-    if (zoomLevel > 11) {
+    if (zoomLevel > 7) {
         console.log("Download the MODIS data");
         downloadMODISData();
     } else {
@@ -246,20 +248,6 @@ $(function() {
         attr_overpass = 'POI via <a href="http://www.overpass-api.de/">Overpass API</a>';
     var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {opacity: 0.7, attribution: [attr_osm, attr_overpass].join(', ')});
     map = new L.Map('map').addLayer(osm).setView(L.latLng(10.07568504578726, -84.31182861328125), 8);
-
-    /* MODIS data layers */
-
-    //Data from the backend
-    var MODISLayer = L.geoJSON(null, {
-        onEachFeature:onEachFeature
-    }).addTo(map);
-
-    //NASA's WMS service
-    var wmsLayer = L.tileLayer.wms('https://firms.modaps.eosdis.nasa.gov/wms/c6?', {
-        layers:'fires24',
-        transparent: true,
-        format: 'image/png'
-    }).addTo(map);
 
 
     /* Routing */
@@ -303,18 +291,23 @@ $(function() {
         popupAnchor:  [0, -37]
     });
 
-    /* MODIS geoJSON */
-
-    var geojsonLayer = new L.GeoJSON.AJAX("/modis_data/fires.json", {
-        onEachFeature: onEachFeature
-    });
-
-    geojsonLayer.addTo(map);
-
     //Capturing the moveend event from the map
     map.on('moveend', function() {
         checkZoomLevel();
     });
-    //Initial check action
+
+    /* MODIS data layers */
+
+    //Data from the backend
+    MODISLayer = L.geoJSON(null, {
+        onEachFeature:onEachFeature
+    }).addTo(map);
+
+    //NASA's WMS service
+    var wmsLayer = L.tileLayer.wms('https://firms.modaps.eosdis.nasa.gov/wms/c6?', {
+        layers:'fires24',
+        transparent: true,
+        format: 'image/png'
+    }).addTo(map);
 
 });
