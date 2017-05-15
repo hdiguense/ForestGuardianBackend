@@ -60,6 +60,8 @@ class SyncDailyDataJob < ActiveJob::Base
   end
 
   def perform()
+    FireDataPoint.delete_all
+
     zipfile = download "https://firms.modaps.eosdis.nasa.gov/active_fire/c6/shapes/zips/MODIS_C6_Central_America_24h.zip"
 
     puts "downloaded..."
