@@ -244,10 +244,13 @@ function checkZoomLevel() {
 
 
 $(function() {
-    var attr_osm = 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors',
-        attr_overpass = 'POI via <a href="http://www.overpass-api.de/">Overpass API</a>';
-    var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {opacity: 0.7, attribution: [attr_osm, attr_overpass].join(', ')});
-    map = new L.Map('map').addLayer(osm).setView(L.latLng(10.07568504578726, -84.31182861328125), 8);
+    //Map where the data will be displayed
+    map = L.map('map').setView([10.07568504578726, -84.31182861328125], 8);
+    //Some setting to the general map
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+ 	    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+ 	    maxZoom: 18
+    }).addTo(map);
 
 
     /* Routing */
