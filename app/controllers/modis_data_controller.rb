@@ -5,7 +5,7 @@ class ModisDataController < ApplicationController
 
   def fires
     query = "SELECT * from fire_data_points fires
-      WHERE created_at >= #{6.hours.ago} ST_Within(fires.coordinates::geometry,ST_MakePolygon( ST_GeomFromText('#{wkt_linestring}')));
+      WHERE ST_Within(fires.coordinates::geometry,ST_MakePolygon( ST_GeomFromText('#{wkt_linestring}')));
     "
     @fires = FireDataPoint.find_by_sql query
   end
