@@ -128,6 +128,7 @@ function addReportLocation( latitude, longitude ){
 
 function clearReportLocation(){
     map.removeLayer(reportMarker);
+    reportMarker = null;
 }
 
 function prepareReportLocation(){
