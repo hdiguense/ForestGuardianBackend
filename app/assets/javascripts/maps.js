@@ -128,6 +128,7 @@ function addReportLocation( latitude, longitude ){
 
 function clearReportLocation(){
     map.removeLayer(reportMarker);
+    //FIXME This can be improved by setting a state variable.
     reportMarker = null;
 }
 
