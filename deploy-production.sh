@@ -34,6 +34,41 @@ function fg_start {
     docker-compose -f docker-compose-production.yml up -d web
 }
 
+function fg_quick_reload {
+    tmp_start=$(date +%s) &&
+
+    fg_activate_machine &&
+    docker-compose -f docker-compose-production.yml exec web bundle exec bash -c 'git pull' &&
+    docker-compose -f docker-compose-production.yml exec sidekiq bundle exec bash -c 'git pull' &&
+    docker-compose -f docker-compose-production.yml restart sidekiq web &&
+
+    tmp_end=$(date +%s)
+    echo Quick Reload lasted $(( tmp_end - tmp_start )) seconds.
+}
+
+function fg_quick_precompile {
+    tmp_start=$(date +%s) &&
+
+    fg_activate_machine &&
+    docker-compose -f docker-compose-production.yml exec web bundle exec bash -c 'bundle exec rake assets:precompile' &&
+    docker-compose -f docker-compose-production.yml restart web &&
+
+    tmp_end=$(date +%s)
+    echo Quick Precompile lasted $(( tmp_end - tmp_start )) seconds.
+}
+
+function fg_quick_gem_install {
+    tmp_start=$(date +%s) &&
+
+    fg_activate_machine &&
+    docker-compose -f docker-compose-production.yml exec web bundle exec bash -c 'bundle install' &&
+    docker-compose -f docker-compose-production.yml exec sidekiq bundle exec bash -c 'bundle install' &&
+
+
+    tmp_end=$(date +%s)
+    echo Quick Gems Install lasted $(( tmp_end - tmp_start )) seconds.
+}
+
 function fg_reload {
     fg_activate_machine
     docker-compose -f docker-compose-production.yml stop web
