@@ -15,6 +15,7 @@ var fireStationIcon;
 var markerIcon;
 var markerArea;
 var reportMarkerLocation = { 'latitude':0.0, 'longitude':0.0 }
+var layers = [];
 
 /* Interface function with the client app */
 
@@ -318,5 +319,9 @@ $(function() {
         transparent: true,
         format: 'image/png'
     }).addTo(map);
+
+    for ( var layer in layers ){
+        layer.addTo(map)
+    }
 
 });
