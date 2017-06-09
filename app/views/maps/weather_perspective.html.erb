@@ -30,15 +30,17 @@
     /**
      * Created by luisalonsomurilloalonso on 05/05/16.
      */
-
-    /* Central America weather perspectives */
-    var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-        layers:'perspectiva_ca_mjj',
-        styles: 'perspectiva_ca_mjj',
-        transparent: true,
-        format: 'image/png'
+    $(function() {
+      /* Central America weather perspectives */
+        var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
+            layers: 'perspectiva_ca_mjj',
+            styles: 'perspectiva_ca_mjj',
+            transparent: true,
+            format: 'image/png'
+        });
+        layers.push(wmsLayer);
     });
-    layers.push(wmsLayer);
+
 </script>
 </body>
 </html>
