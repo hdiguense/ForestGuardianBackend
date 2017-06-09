@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   # note that this include statement comes AFTER the devise block above
   include DeviseTokenAuth::Concerns::User
+
+  validates_presence_of :name
 end
