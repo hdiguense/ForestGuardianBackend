@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   validates_presence_of :name
+
+  has_attached_file :avatar, styles: {
+      thumb: '100x100>',
+      big: '1024x1024>'
+  }
+  validates_attachment_content_type :avatar, :content_type => %w(image/jpg image/jpeg image/png image/gif)
+
 end
