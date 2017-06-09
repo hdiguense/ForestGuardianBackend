@@ -1,9 +1,9 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-  include ApplicationHelper
-  layout 'centered'
-  protect_from_forgery with: :null_session, if: ->{request.format.json?}
+#   include ApplicationHelper
+#   layout 'centered'
+#   protect_from_forgery with: :null_session, if: ->{request.format.json?}
 
   # GET /resource/sign_up
   # def new
