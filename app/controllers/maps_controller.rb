@@ -8,7 +8,7 @@ class MapsController < ApplicationController
   def windy
   end
 
-  def forest
+  def forests
   end
 
   def protected_areas
