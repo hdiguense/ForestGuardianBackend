@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # map views
   get 'maps/fires' => 'maps#fires'
   get 'maps/windy' => 'maps#windy'
+  get 'maps/protected_areas' => 'maps#protected_areas'
+  get 'maps/weather_perspective' => 'maps#weather_perspective'
 
   # modis data
   #get 'modis_data/fires' => 'modis_data#fires'
