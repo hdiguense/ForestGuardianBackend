@@ -27,20 +27,17 @@
 <div id="map"></div>
 <script type="text/javascript">
 
-    /**
-     * Created by luisalonsomurilloalonso on 05/05/16.
-     */
-    $(function() {
-      /* Central America weather perspectives */
-        var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-            layers: 'perspectiva_ca_mjj',
-            styles: 'perspectiva_ca_mjj',
-            transparent: true,
-            format: 'image/png'
-        });
-        fg_layers.push(wmsLayer);
-    });
-
+  /**
+   * Created by luisalonsomurilloalonso on 05/05/16.
+   */
+    /* Central America weather perspectives */
+      var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
+          layers: 'perspectiva_ca_mjj',
+          styles: 'perspectiva_ca_mjj',
+          transparent: true,
+          format: 'image/png'
+      });
+      fg_layers.push(wmsLayer);
 </script>
 </body>
 </html>
