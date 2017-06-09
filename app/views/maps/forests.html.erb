@@ -24,48 +24,6 @@
   </style>
 </head>
 <body>
-<div id="map"></div>
-<script type="text/javascript">
-
-    /**
-     * Created by luisalonsomurilloalonso on 05/05/16.
-     */
-
-    /* Forest types for Costa Rica */
-    var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-        layers:'bi18_tipos_bosque_costa_rica_2015',
-        styles: 'bi18_tipos_bosque_costa_rica_2015',
-        transparent: true,
-        format: 'image/png'
-    });
-    layers.push(wmsLayer);
-
-    /* Forest types for Honduras */
-    var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-        layers:'bi21_tipos_bosque_honduras_2015_v2',
-        styles: 'bi21_tipos_bosque_honduras_2015',
-        transparent: true,
-        format: 'image/png'
-    });
-    layers.push(wmsLayer);
-
-    /* Forest types for El Salvador */
-    var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-        layers:'bi19_tipos_bosque_el_salvador_2015',
-        styles: 'bi19_tipos_bosque_el_salvador_2015',
-        transparent: true,
-        format: 'image/png'
-    });
-    layers.push(wmsLayer);
-
-    /* Forest types for Belice */
-    var wmsLayer = L.tileLayer.wms('http://138.68.63.173/geoserver/ows?', {
-        layers:'bi15_tipos_bosque_belice_2015',
-        styles: 'bi15_tipos_bosque_belice_2015',
-        transparent: true,
-        format: 'image/png'
-    });
-    layers.push(wmsLayer);
-</script>
+<div id="map" class="forests"></div>
 </body>
 </html>
