@@ -15,4 +15,10 @@ class User < ActiveRecord::Base
   }
   validates_attachment_content_type :avatar, :content_type => %w(image/jpg image/jpeg image/png image/gif)
 
+  def token_validation_response
+    self.as_json(except: [
+        :tokens, :created_at, :updated_at
+    ], methods: :avatar)
+  end
+
 end
