@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
 
+  devise_for :users
+
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'users', skip: [:omniauth_callbacks]
